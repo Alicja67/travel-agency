@@ -2,6 +2,8 @@
   position: relative;
 
   > :first-child ~ * {
+    transition-duration: 1s;
+    transition-timing-function: easy-in-out;
     position: absolute;
     top: 200px;
     left: 0;
