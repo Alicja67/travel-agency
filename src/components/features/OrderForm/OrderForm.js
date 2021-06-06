@@ -9,12 +9,13 @@ import pricing from '../../../data/pricing.json';
 
 const OrderForm = ({ tripCost, options, setOrderOption }) => {
   console.log('options', options);
+  console.log('tripCost', tripCost);
   return (
     <div className={styles.component}>
       <Row>
         {pricing.map(option =>(
           <Col md={4} key={option.id}>
-            <OrderOption setOrderOption={setOrderOption} currentValue={options[option.id]} {...option} />
+            <OrderOption setOrderOption={setOrderOption} tripCost={tripCost} currentValue={options[option.id]} {...option} />
           </Col>))
         }
         <Col xs={12}>
