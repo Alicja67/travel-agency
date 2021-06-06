@@ -8,8 +8,6 @@ import OrderOption from '../OrderOption/OrderOption';
 import pricing from '../../../data/pricing.json';
 
 const OrderForm = ({ tripCost, options, setOrderOption }) => {
-  console.log('options', options);
-  console.log('tripCost', tripCost);
   return (
     <div className={styles.component}>
       <Row>
