@@ -5,7 +5,7 @@ import styles from './OrderOption.scss';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 
-const OrderOptionDate = ( { setOptionValue }) => {
+const OrderOptionDate = ( { setOptionValue, currentValue }) => {
   const [startDate, setStartDate] = useState(new Date());
   return (
     <div className={styles.component}>
@@ -13,6 +13,7 @@ const OrderOptionDate = ( { setOptionValue }) => {
         selected={startDate}
         onChange={date => setOptionValue(date)}
         onSelect={date => setStartDate(date)}
+        value={currentValue}
       />
     </div>
   );
@@ -20,6 +21,7 @@ const OrderOptionDate = ( { setOptionValue }) => {
 
 OrderOptionDate.propTypes = {
   setOptionValue: PropTypes.func,
+  currentValue: PropTypes.any,
 };
 
 export default OrderOptionDate;
