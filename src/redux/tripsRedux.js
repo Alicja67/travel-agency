@@ -12,22 +12,31 @@ export const getFilteredTrips = ({trips, filters}) => {
   }
 
   // TODO - filter by duration
+  if(filters.duration){
+    output = output.filter(trip => (trip.days >= filters.duration.from) && (trip.days <= filters.duration.to));
+  }
 
   // TODO - filter by tags
-
+  if(filters.tags){
+    for(let tag of filters.tags){
+      output = output.filter(trip => trip.tags.includes(tag));
+      console.log('output', output);
+    }
+  }
   // TODO - sort by cost descending (most expensive goes first)
 
   return output;
 };
 
 export const getTripById = ({trips}, tripId) =>
+
 {
-  const filtered = trips.filter((trip) => trip.id == tripId);
+  const trip = trips.find((trip) => trip.id == tripId);
 
   // TODO - filter trips by tripId
 
-  // console.log('filtering trips by tripId:', tripId, filtered);
-  return filtered.length ? filtered[0] : {error: true};
+  console.log('filtering trips by tripId:', tripId, trip);
+  return trip ? trip : {error: true};
 };
 
 export const getTripsForCountry = ({trips}, countryCode) => {

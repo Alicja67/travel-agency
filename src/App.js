@@ -17,7 +17,7 @@ import NotFound from './components/views/NotFound/NotFound';
 
 import parseTrips from './utils/parseTrips';
 import {setMultipleStates} from './redux/globalRedux';
-import {AnimatedSwitch} from 'react-router-transition';
+import {spring, AnimatedSwitch} from 'react-router-transition';
 import styles from '../src/styles/App.scss';
 
 
@@ -40,14 +40,44 @@ class App extends React.Component {
     }
   }
 
+  mapStyles = (style) => {
+    return {
+      opacity: style.opacity,
+      transform: `translateY(${style.translate}px)`,
+    };
+  }
+
+  bounce = (val) => {
+    return spring(val, {
+      stiffness: 330,
+      damping: 22,
+    });
+  }
+
+  transition = {
+    atEnter: {
+      opacity: 0,
+      translate: 200,
+    },
+    atLeave: {
+      opacity: this.bounce(0),
+      translate: this.bounce(200),
+    },
+    atActive: {
+      opacity: this.bounce(1),
+      translate: this.bounce(0),
+    },
+  }
+
   render(){
     return (
       <BrowserRouter>
         <MainLayout>
           <AnimatedSwitch
-            atEnter={{ opacity: 0 }}
-            atLeave={{ opacity: 0 }}
-            atActive={{ opacity: 1 }}
+            atEnter={this.transition.atEnter}
+            atLeave={this.transition.atLeave}
+            atActive={this.transition.atActive}
+            mapStyles={this.mapStyles}
             className={styles.switchWrapper}
           >
             <Route exact path='/' component={Home} />
