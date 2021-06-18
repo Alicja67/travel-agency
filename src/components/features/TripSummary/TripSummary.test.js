@@ -49,7 +49,7 @@ describe('Component TripSummary', () => {
 
   it('should not render .tags if tags are undefined', () => {
     const component = shallow(<TripSummary image={'image.jpg'} name={'name'} id={'id'} days={1} cost={'cost'}  />);
-    console.log(component.debug());
+    // console.log(component.debug());
     expect(component.exists('.tags')).toBe(false);
   });
 });
