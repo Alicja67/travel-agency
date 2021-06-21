@@ -9,6 +9,8 @@ const OrderOptionText = ({ setOptionValue, currentValue }) => {
         type='text'
         onChange={event => setOptionValue(event.currentTarget.value)}
         value={currentValue}
+        placeholder='required'
+        required
       />
     </div>
   );

@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot",
+    "start": "npm-run-all -p server:*",
+    "server:api": "node server.js",
+    "server:dev": "webpack-dev-server --mode development --open --hot",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
     "build": "webpack --mode production",
@@ -19,7 +21,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.js": "eslint"
+    "src/**/*.js": "eslint --fix"
   },
   "keywords": [],
   "author": "",
@@ -32,11 +34,12 @@
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
+    "json-server": "^0.16.3",
     "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.11.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-datepicker": "^4.1.1",
+    "react-datepicker": "^3.8.0",
     "react-dom": "^16.8.6",
     "react-flexbox-grid": "^2.1.2",
     "react-html-parser": "^2.0.2",
