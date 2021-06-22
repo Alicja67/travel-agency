@@ -15,6 +15,24 @@
       "countryCode": "TUR",
       "tripDuration": 7,
       "id": 1
+    },
+    {
+      "car-rental": "luxury",
+      "accommodation": "hotel",
+      "features": [
+        "all-inclusive"
+      ],
+      "adults": 1,
+      "children": 0,
+      "name": "sf",
+      "contact": "asd",
+      "start-date": "",
+      "totalCost": "$51,881",
+      "tripId": "5cc1d10130dfa407e2e54e20",
+      "tripName": "Pleasant travel in cool Turkey",
+      "countryCode": "TUR",
+      "tripDuration": 7,
+      "id": 2
     }
   ]
 }
