@@ -17,26 +17,6 @@ beforeAll(() => {
   utilsModule.formatTime = jest.fn(seconds => seconds);
 });
 
-describe('Component HappyHourAd', () => {
-
-  it('should render component', () => {
-    const component = shallow(<HappyHourAd />);
-    expect(component).toBeTruthy();
-  });
-  it('should render title and description', () => {
-    const component = shallow(<HappyHourAd />);
-    expect(component.exists(select.title)).toEqual(true);
-    expect(component.exists(select.promoDescription)).toEqual(true);
-  });
-  it('should render title with props value', () => {
-    const component = shallow(<HappyHourAd {...mockProps} />);
-    const renderedTitle = component.find(select.title).text();
-    expect(mockProps.title).toEqual(renderedTitle);
-  });
-});
-
-
-
 const trueDate = Date;
 const mockDate = customDate => class extends Date {
   constructor(...args) {
